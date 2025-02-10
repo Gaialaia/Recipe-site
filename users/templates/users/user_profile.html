@@ -1,0 +1,46 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Your profile {% endblock %}
+
+<nav class="navigate">{% block navigate %} {% endblock %}</nav>
+
+<div class="middle-section">
+  {% block middle-section %}
+
+  <form method="POST">
+    {% csrf_token %}
+    <div>
+      {% if messages %}
+        {% for message in messages %} {% if message.tags %} {% endif %}
+      {{ message }} {% endfor %}
+      {% endif %}
+    </div>
+    <p>{{ form.instance.username }}</p>
+    <p>{{ form.instance.first_name }}, {{ form.instance.last_name }}</p>
+    <p>{{ form.instance.email }}</p>
+    <p>Description: {{ form.instance.description }}</p>
+    {% if user.username == form.instance.username %}
+    <p>Edit Profile Information</p>
+    <div>{{ form.first_name }} {{ form.last_name }}</div>
+    {{ form.email }} {{ form.description }}
+
+    <p>
+      <button type="submit">Update</button>
+    </p>
+    <p><a href="/home/"> Back Home </a></p>
+    {% endif %}
+  </form>
+
+  <div>
+    <a href="/recipes by author/{{ user.id }} /"> Your recipes </a>
+  </div>
+  {% endblock%}
+</div>
+
+
+
+
+
+
+

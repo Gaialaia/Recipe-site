@@ -1,0 +1,40 @@
+
+{% extends "base.html" %}
+{% block title %} Your recipes {% endblock %}
+
+<nav class="navigate">
+    {% block navigate %}
+  <div class="back-home">
+<a id="back-home" href="/home/"> Home </a>
+  </div>
+      <div class="user-tools">
+ <a class="nav-menu" href="{% url 'user profile' user.username %}">
+  {{ user.username }} 's profile
+</a>
+</div>
+      {% endblock %}
+</nav>
+
+<div class="middle-section">
+{% block middle-section %}
+{% for recipe in recipes_by_author %}
+
+<p><a href="/recipe/{{ recipe.id }}/"> {{ recipe.recipe_title }} </a></p>
+{% endfor %}
+
+<a href="/recipe form/"> Add another recipe </a>
+
+{% endblock%}
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %} Confirm deletion {% endblock %}
+
+
+ <nav class="navigate">
+        {% block navigate %}
+      <div class="back-home">
+    <a id="back-home" href="/home/"> Home </a>
+  </div>
+
+         {% endblock %}
+      </nav>
+
+<div class="middle-section">
+  {% block middle-section %}
+  <form method="POST">
+    {% csrf_token %}
+    <p>Confirm that you want to delete this {{ object }}</p>
+    {% if messages %}
+      {% for message in messages %}
+       {{ message }}
+      {% endfor %} {% endif %}
+
+    <button type="submit">
+      <a href=""> Delete {{ recipe_to_delete.recipe_title }} </a>
+    </button>
+    <button><a href="/{{ recipe.id }}"> I've changed my mind </a></button>
+  </form>
+
+  {% endblock%}
+</div>
+
+

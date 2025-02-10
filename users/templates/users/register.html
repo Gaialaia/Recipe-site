@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %} Register {% endblock %}
+
+<div class="middle-section">
+  {% block middle-section %}
+  <form method="POST">
+    {% csrf_token %} {{ form }}
+    <button type="submit">Register</button>
+    <p>Alreday have an account <a href="/login/"> Login </a></p>
+  </form>
+  {% endblock%}
+</div>
+
+
+
+
+

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} All recipes {% endblock %}
+
+<nav class="navigate">
+  {% block navigate %}
+  <div class="back-home">
+    <a id="back-home" href="/home/"> Home </a>
+  </div>
+  <div class="user-tools">
+    {% if user.is_authenticated %}
+    <a class="nav-menu" href="{% url 'user profile' user.username %}">
+      {{ user.username }} 's profile
+    </a>
+    <a class="nav-menu" href="/logout/"> Log out </a>
+    {% elif not user.is_authenticated %}
+    <a class="nav-menu" href="/login/"> Log in </a>
+    <a class="nav-menu" href="/register/"> Register </a>
+    {% endif %} {% endblock %}
+  </div>
+
+  <div class="middle-section">
+    {% block middle-section %}
+    {% for recipe in recipes %}
+    <p>Title: {{ recipe.recipe_title }}</p>
+    <p>Cooking level: {{ recipe.cooking_level }}</p>
+    <p>Ingredients: {{ recipe.ingredients }}</p>
+      <a href="/recipe/{{ recipe.id }}/"> Click for details </a>
+    {% endfor %} {% endblock%}
+  </div>
+</nav>

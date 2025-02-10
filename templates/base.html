@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{% static 'recipes/home_page.css' %}" />
+    <title>{% block title %} Base {% endblock %}</title>
+  </head>
+  <body>
+
+
+    <div class="container">
+      {% block container %}
+
+
+
+
+
+      <header>
+        {% block header %}
+        {% endblock %}
+      </header>
+
+
+
+      <nav class="navigate">
+        {% block navigate %}
+
+         {% endblock %}
+      </nav>
+
+
+
+      <div class="middle-section">
+        {% block middle-section %}
+
+        {% endblock%}
+
+      </div>
+
+
+<!--      <div class="recipe-section">-->
+<!--          {% block recipe-section %}-->
+<!--            {% endblock %}-->
+<!--      </div>-->
+
+
+
+
+      <footer>
+        {% block footer %}
+        {% endblock %}
+      </footer>
+      {% endblock %}
+    </div>
+  </body>
+</html>

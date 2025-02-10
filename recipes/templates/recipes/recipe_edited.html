@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %} Edit the recipe  {% endblock %}
+
+<nav class="navigate">
+  {% block navigate %}
+  <div class="back-home">
+    <a id="back-home" href="/home/"> Home </a>
+  </div>
+  {% endblock %}
+</nav>
+
+<div class="middle-section">
+  {% block middle-section %}
+  <form method="post">
+    {% csrf_token %} {{ edit_form }}
+    <input type="submit" value="Submit" />
+  </form>
+  {% endblock%}
+</div>
+
+
