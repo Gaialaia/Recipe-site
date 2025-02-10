@@ -91,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': '<GaiaAlaya$default',
         'USER': 'GaiaAlaya',
-        'PASSWORD': os.getenv('=VQK:!;fjHmg7R'),
+        'PASSWORD': os.getenv('8Yh9RX3Aw?W3Xbs'),
         'HOST': 'GaiaAlaya.mysql.pythonanywhere-services.com',
         'OPTIONS': {
             'init_command': "SET NAMES 'utf8mb4';SET sql_mode='STRICT_TRANS_TABLES'",
