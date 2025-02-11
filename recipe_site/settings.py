@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'recipe_site.wsgi.application'
 DATABASES = {
 'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': '<GaiaAlaya$default',
+        'NAME': 'GaiaAlaya$recipesdb',
         'USER': 'GaiaAlaya',
         'PASSWORD': os.getenv('8Yh9RX3Aw?W3Xbs'),
         'HOST': 'GaiaAlaya.mysql.pythonanywhere-services.com',
