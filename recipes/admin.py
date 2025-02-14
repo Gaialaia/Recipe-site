@@ -3,4 +3,3 @@ from .models import Recipe, RecipeCategory
 
 admin.site.register(Recipe)
 admin.site.register(RecipeCategory)
-

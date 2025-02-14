@@ -26,13 +26,15 @@
 </nav>
 
 <div class="middle-section" >
-  {% block middle-section %} {% if messages %} {% for message in messages %}
-   {% if message.tags %} {% endif %} {{ message }} {% endfor %}
+  {% block middle-section %}
     {% if user.is_authenticated %}
-  <form action=" " method="post" enctype="multipart/form-data">
+  <form method="POST">
     {% csrf_token %} {{ form|crispy }}
-    <input type="submit" value="Submit" />
-    {% endif %}
+     <p>  {% if messages %} {% for message in messages %}
+          {% if message.tags %} {% endif %} {{ message }} {% endfor %}
+          {% endif %}   </p>
+    <input type="submit" value="Submit">
+
   </form>
 
   {% elif not user.is_authenticated %}

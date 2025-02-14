@@ -12,7 +12,7 @@ class Recipe(models.Model):
             'soup': 'soup',
             'broth': 'broth',
             'chowder': 'chowder',
-            'other':'other'
+            'other': 'other'
         },
 
         'second dish': {
@@ -30,7 +30,7 @@ class Recipe(models.Model):
             'tart': 'tart',
             'muffin': 'muffin',
             'ice-cream': 'ice-cream',
-            'milk':'milk',
+            'milk': 'milk',
             'other': 'other',
 
         },
@@ -51,26 +51,38 @@ class Recipe(models.Model):
     }
 
     objects = None
-    recipe_author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
-    recipe_title = models.CharField(max_length=25, default='a delicious recipe')
-    dish_type = models.CharField(max_length=30,choices=DISHES_CATEGORY, default='dish type')
-    cooking_level = models.CharField(max_length=1, choices=COOK_LEVELS, default='simple')
-    portion_qty = models.IntegerField(verbose_name="Serving",default=1)
-    cooking_time = models.IntegerField(help_text='Enter cooking time in minutes', default=10)
-    ingredients = models.TextField(max_length=500, default='for example, oranges, 1, kg',
-                                   help_text='Enter ingredient, quantity and units')
-    directions = models.TextField(max_length=2000, default='first step is ...')
-    taste = models.CharField(max_length=170, default='spicy', blank=True, help_text='Describe taste')
-    date_published = models.DateTimeField('Date published', default=timezone.now)
-    date_modified = models.DateTimeField('Date edited', default=timezone.now)
+    recipe_author = models.ForeignKey(get_user_model(),
+                                      on_delete=models.CASCADE)
+    recipe_title = models.CharField(max_length=25,
+                                    default='a delicious recipe')
+    dish_type = models.CharField(max_length=30, choices=DISHES_CATEGORY,
+                                 default='dish type')
+    cooking_level = models.CharField(max_length=1, choices=COOK_LEVELS,
+                                     default='simple')
+    portion_qty = models.IntegerField(verbose_name="Serving",
+                                      default=1)
+    cooking_time = (models.IntegerField
+                    (help_text='Enter cooking time in minutes', default=10))
+    ingredients = (models.TextField
+                   (max_length=500, default='for example, oranges, 1, kg',
+                    help_text='Enter ingredient, quantity and units'))
+    directions = (models.TextField
+                  (max_length=2000, default='first step is ...'))
+    taste = (models.CharField
+             (max_length=170, default='spicy',
+              blank=True, help_text='Describe taste'))
+    date_published = (models.DateTimeField
+                      ('Date published', default=timezone.now))
+    date_modified = (models.DateTimeField
+                     ('Date edited', default=timezone.now))
     # recipe_slug = models.SlugField('Recipe slug', unique=True)
     image = models.ImageField(upload_to='media/', blank=True)
 
-
     def __str__(self):
-        return f'{self.recipe_author} {self.recipe_title}, {self.dish_type}, {self.portion_qty},\
+        return (f'{self.recipe_author}, {self.recipe_title},'
+                f' {self.dish_type}, {self.portion_qty},\
         {self.cooking_level}, {self.ingredients}, {self.directions},\
-        {self.taste}, {self.image}'
+        {self.taste}, {self.image}')
 
     class Meta:
         verbose_name_plural = 'Recipe'
@@ -84,20 +96,20 @@ class Recipe(models.Model):
         return f'{" ".join(brief_desc[:15])}...'
 
 
-# @property
-# def slug(self):
-#     return f'{self.category_slug}' + '/' + f'{self.recipe_slug}'
-
 class RecipeCategory(models.Model):
 
     dish_type = models.ManyToManyField(Recipe)
+
     def __str__(self):
         return f'{self.dish_type}'
 
+
 class RecipeInfo(models.Model):
-    dish_type = models.ForeignKey(RecipeCategory, on_delete=models.CASCADE)
+    dish_type = models.ForeignKey(RecipeCategory,
+                                  on_delete=models.CASCADE)
     recipe_title = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    recipe_author = models.ForeignKey(get_user_model(), default=1, on_delete=models.SET_DEFAULT)
+    recipe_author = models.ForeignKey(get_user_model(),
+                                      default=1, on_delete=models.SET_DEFAULT)
 
     def __str__(self):
         return f'{self.recipe_author},{self.dish_type}, {self.recipe_title}'

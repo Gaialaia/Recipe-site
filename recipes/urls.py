@@ -12,4 +12,6 @@ urlpatterns = [
     path('<id>/edit/', views.edit_recipe, name='edit a recipe'),
     path('<id>/delete/', views.delete_recipe, name='delete the recipe'),
     path('show all/', views.show_recipes, name='all recipes'),
+    path('random detail/<id>/', views.recipe_details_from_hp,
+         name='random recipe detail')
 ]

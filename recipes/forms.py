@@ -12,4 +12,4 @@ class RecipeForm(forms.ModelForm):
 class RecipeEditForm(forms.ModelForm):
     class Meta:
         model = Recipe
-        exclude = ['recipe_author','date_published', 'date_modified']
+        exclude = ['recipe_author', 'date_published', 'date_modified']

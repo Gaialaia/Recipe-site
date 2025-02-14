@@ -91,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'GaiaAlaya$recipesdb',
         'USER': 'GaiaAlaya',
-        'PASSWORD': os.getenv('MYSQL_PASSWORD'),
+        'PASSWORD': os.getenv('02Febeightsix'),
         'HOST': 'GaiaAlaya.mysql.pythonanywhere-services.com',
         'OPTIONS': {
             'init_command': "SET NAMES 'utf8mb4';SET sql_mode='STRICT_TRANS_TABLES'",
@@ -152,6 +152,3 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
-
-
-

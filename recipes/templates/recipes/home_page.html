@@ -11,13 +11,6 @@
   {% endif %}
 
   <div class="user-tools">
-     {% if messages %}
-          {% for message in messages %}
-          {% if message.tags %}
-           {% endif %}
-    <h5 class="message"> {{ message }} </h5>
-            {% endfor %}
-            {% endif %}
     {% if user.is_authenticated %}
     <a class="nav-menu" href="{% url 'user profile' user.username %}">
       Your profile
@@ -47,7 +40,7 @@
         {{ recipe.recipe_author}}</a>
     </p>
     <p>Published: {{ recipe.date_published|date:"F d, Y" }}</p>
-    <p><img src="/media/{{ recipe.image }}/" /></p>
+    <p><img src="/media/{{ recipe.image }}/"></p>
 
     <div class="add-recipe">
       <a href="/recipe form/"> Add my recipe </a>
@@ -62,7 +55,7 @@
       <p>Ingredients: {{ recipe.ingredients_summary }}</p>
       <p>Directions: {{ recipe.description_summary }}</p>
       <p>Taste: {{ recipe.taste }}</p>
-      <a href="/recipe/{{ recipe.id }}/"> Click for details </a>
+      <a href="/random detail/{{ recipe.id }}/"> Click for details </a>
       {% endfor %}
     </div>
   </div>
