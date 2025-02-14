@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Signika:wght@300..700&display=swap');
 
-
 body {
     max-width: 960px;
     margin: auto;
@@ -44,9 +43,7 @@ header {
      color: #70190f;
      display: grid;
      justify-content: center;
-
 }
-
 
 .recipe-section {
     background-color: #ff9885;
@@ -60,7 +57,6 @@ header {
 #recipe-word {
     font-size: x-large;
     color: #fff6b1;
-
 }
 
 .random-recipes {
@@ -73,8 +69,6 @@ header {
 
 .recipe-preview {
     background-color: #ffc4a4;
-
-
 }
 
 .user-tools {
@@ -89,25 +83,21 @@ header {
     color: #671110;
 }
 
-
 .user-greeting {
     color:  #939e02;
     font-size: 20px;
 }
-
 
 .add-recipe {
     font-size: 30px;
 
 }
 
-
 .daily-recipe {
     background-color: rgb(226, 25, 176);
     text-align:center;
     background-color: #ff9885;
 }
-
 
 footer {
     background-image: url('images/header.png');
@@ -119,7 +109,6 @@ footer {
      color: #70190f;
      display: grid;
      justify-content: center;
-
 }
 
 #back-home {
@@ -127,7 +116,6 @@ footer {
     text-size: xx-large;
     justify-content: left;
 }
-
 
 form input{
   background-color: #fee2c8;
@@ -148,7 +136,6 @@ form input .submit {
     padding: 7px 12px;
     border: none;
     color: #fdbf0c;
-
 
 }
 
